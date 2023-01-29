@@ -4,11 +4,11 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
-import java.time.LocalDateTime
+import java.time.LocalDate
 
 @Entity(name = "plan")
 class PlanEntity (
-    var date: LocalDateTime,
+    var date: LocalDate,
     val title: String,
     val tag: String,
     val content: String? = null,
