@@ -1,3 +1,4 @@
+spring.config.activate.on_profile: dev
 spring:
   flyway:
     baseline-on-migrate: true
@@ -15,3 +16,17 @@ spring:
     generate-ddl: false
     hibernate:
       ddl-auto: validate
+
+---
+spring.config.activate.on_profile: prod
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${rds.hostname}:${rds.port}/${rds.dbname}?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Seoul
+    username: ${rds.username}
+    password: ${rds.password}
+  jpa:
+    show-sql: false
+    generate-ddl: true
+    hibernate:
+      ddl-auto: none
